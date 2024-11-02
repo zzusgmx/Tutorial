@@ -7,7 +7,7 @@ Hello大家好，迎来到实战营第四期的llamaindex+InternLM RAG课程，�
 - 前置知识
 - 浦语API+LlamaIndex实践案例
 - 本地部署InternLM+LlamaIndex实践案例
-- LlamaIndex RAG
+- 闯关任务
 
 ## 1. 前置知识
 
