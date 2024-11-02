@@ -14,7 +14,6 @@
 
 ![alt text](https://github.com/random-zhou/ailabImage/blob/main/taskim1.png)
 
-### 要求
 
 1. 命名格式为 `<id>.md`，其中 `<id>` 是您的报名问卷UID。
 2. 文件路径应为 `./icamp4/`。
