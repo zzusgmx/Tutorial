@@ -1,6 +1,4 @@
-# Git 课程任务
-
-
+## 闯关任务
 
 
 
@@ -29,10 +27,9 @@
 5. 将此项目报名参加第四期实战营项目评选将解锁 30% A100 和 168 团队算力点资源，报名链接：https://aicarrier.feishu.cn/wiki/JuXvwHzGni2A2Rksd8Rczpvxngb
 
 
+**提交方式：**
 
-## 闯关材料提交
-
-将Pull Request链接闯关材料提交到以下问卷，助教老师批改后将获得 50 算力点奖励！！！，完成项目申报后请联系浦语小助手（微信ID：InternLM）申请额外的团队项目算力资源～
+将所有闯关材料集中到文档中提交到下方问卷中，助教老师批改后将获得 50 算力点奖励！！！，完成项目申报后请联系浦语小助手（微信ID：InternLM）申请额外的团队项目算力资源～
 
 提交地址：https://aicarrier.feishu.cn/share/base/form/shrcnUqshYPt7MdtYRTRpkiOFJd
 
