@@ -138,7 +138,7 @@ unzip averaged_perceptron_tagger.zip
 
 ## 3. 是否使用 LlamaIndex 前后对比
 
-### 3.1、不使用 LlamaIndex RAG（仅API）
+### 3.1 不使用 LlamaIndex RAG（仅API）
 
 运行以下指令，新建一个python文件
 ```bash
@@ -175,7 +175,7 @@ python test_internlm.py
 
 回答的效果并不好，并不是我们想要的xtuner。
 
-### 3.2、使用 API+LlamaIndex 
+### 3.2 使用 API+LlamaIndex 
 
 
 `使用硅基流动 API进行使用（默认）`
