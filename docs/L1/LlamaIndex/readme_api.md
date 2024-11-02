@@ -195,52 +195,6 @@ https://cloud.siliconflow.cn/models?mfs=internlm 从硅基流动网站上获取a
 
 https://internlm.intern-ai.org.cn/api/document  获取api key的地址
 
-运行以下指令，新建一个python文件
-
-```bash
-cd ~/llamaindex_demo
-touch llamaindex_internlm.py
-```
-
-打开llamaindex_internlm.py 贴入以下代码
-
-```python
-from llama_index.core.llms import ChatMessage
-from llama_index.legacy.callbacks import CallbackManager
-
-# Create an instance of CallbackManager
-callback_manager = CallbackManager()
-
-###silicon---硅基流动、puyu---浦语
-provider = "silicon" 
-
-if provider == "silicon":
-   from llama_index.llms.openai_like import OpenAILike
-   url = "https://api.siliconflow.cn/v1"
-   key = "sk-请填写准确的 token！"
-   #使用硅基流动 API进行使用初始化llm
-   llm =OpenAILike(model="internlm/internlm2_5-7b-chat", api_base=url, api_key=key, is_chat_model=True,callback_manager=callback_manager)
-else:
-   from openai_Internlm import OpenAIInternlm
-   url =  "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
-   key = "eyJ0eXBlIjoiSl...请填写准确的 token！"
-   #使用浦语API 进行使用初始化llm
-   llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
-
-rsp = llm.chat(messages=[ChatMessage(content="xtuner是什么？")])
-print(rsp)
-```
-之后运行
-```bash
-conda activate llamaindex
-cd ~/llamaindex_demo/
-python llamaindex_internlm.py
-```
-结果为：
-
-<img width="370" alt="image" src="https://github.com/user-attachments/assets/d892f5c9-1243-4b2d-8551-8aa483d2f986">
-
-回答的效果并不好，并不是我们想要的xtuner。
 
 
 激活环境
