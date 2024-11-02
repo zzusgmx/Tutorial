@@ -174,7 +174,7 @@ client = OpenAI(
 )
 
 chat_rsp = client.chat.completions.create(
-    model="internlm2.5-latest",
+    model=model,
     messages=[{"role": "user", "content": "xtuner是什么？"}],
 )
 
