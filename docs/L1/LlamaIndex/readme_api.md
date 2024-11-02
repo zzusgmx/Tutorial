@@ -136,9 +136,9 @@ unzip averaged_perceptron_tagger.zip
 ```
 之后使用时服务器即会自动使用已有资源，无需再次下载
 
-## 3. 使用API直接推理
+## 3. 是否使用 LlamaIndex 前后对比
 
-### 3.1、使用原生openai 进行API推理（必做）
+### 3.1、仅使用 API 进行推理不使用 LlamaIndex RAG
 
 运行以下指令，新建一个python文件
 ```bash
@@ -175,7 +175,8 @@ python test_internlm.py
 
 回答的效果并不好，并不是我们想要的xtuner。
 
-### 3.2、使用LlamaIndex API进行推理（可选）
+### 3.2、使用 API+LlamaIndex 
+
 
 `使用硅基流动 API进行使用（默认）`
 
@@ -192,12 +193,14 @@ https://cloud.siliconflow.cn/models?mfs=internlm 从硅基流动网站上获取a
 https://internlm.intern-ai.org.cn/api/document  获取api key的地址
 
 运行以下指令，新建一个python文件
+
 ```bash
 cd ~/llamaindex_demo
 touch llamaindex_internlm.py
 ```
 
 打开llamaindex_internlm.py 贴入以下代码
+
 ```python
 from llama_index.core.llms import ChatMessage
 from llama_index.legacy.callbacks import CallbackManager
@@ -235,7 +238,8 @@ python llamaindex_internlm.py
 <img width="370" alt="image" src="https://github.com/user-attachments/assets/d892f5c9-1243-4b2d-8551-8aa483d2f986">
 
 回答的效果并不好，并不是我们想要的xtuner。
-## 4. LlamaIndex RAG
+
+
 激活环境
 ```bash
 conda activate llamaindex
@@ -314,7 +318,6 @@ python llamaindex_RAG.py
 结果为：
 
 <img width="518" alt="image" src="https://github.com/user-attachments/assets/7a976178-2301-47eb-b53b-168cb0ef90a3">
-
 
 借助RAG技术后，就能获得我们想要的答案了。
 
