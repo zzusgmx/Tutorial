@@ -143,6 +143,12 @@ unzip averaged_perceptron_tagger.zip
 
 ### 3.1 不使用 LlamaIndex RAG（仅API）
 
+浦语官网和硅基流动都提供了InternLM的类OpenAI接口格式的免费的 API，可以访问以下两个了解两个 API 的使用方法和 Key。
+
+硅基流动：https://cloud.siliconflow.cn/models?mfs=internlm  
+浦语官方 API：https://internlm.intern-ai.org.cn/api/document  
+
+
 运行以下指令，新建一个python文件
 ```bash
 cd ~/llamaindex_demo
@@ -180,24 +186,13 @@ python test_internlm.py
 
 ### 3.2 使用 API+LlamaIndex 
 
+由于LlamaIndex不支持浦语API，需要自己编写浦语API代码需要先执行以下操作：
 
-`使用硅基流动 API进行使用（默认）`
-
-https://cloud.siliconflow.cn/models?mfs=internlm 从硅基流动网站上获取api key
-
-`使用浦语 API进行使用（可选）`
-
-由于LlamaIndex不支持浦语API，需要自己编写浦语API代码
-
-把docs/L1/LlamaIndex/openai_llm.py文件放到~/llamaindex_demo目录下
-
-把docs/L1/LlamaIndex/openai_Internlm.py放到~/llamaindex_demo目录下
-
-https://internlm.intern-ai.org.cn/api/document  获取api key的地址
+把 `docs/L1/LlamaIndex/openai_llm.py` 文件放到 `~/llamaindex_demo目录下`  
+把 `docs/L1/LlamaIndex/openai_Internlm.py` 放到 `~/llamaindex_demo目录下`  
 
 
-
-激活环境
+接下来我们先激活环境
 ```bash
 conda activate llamaindex
 ```
