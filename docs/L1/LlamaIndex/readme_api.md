@@ -159,9 +159,17 @@ touch test_internlm.py
 ```python
 from openai import OpenAI
 
+
+base_url = "https://api.siliconflow.cn/v1"
+api_key = "sk-请填写准确的 token！"
+
+# base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
+# api_key = "sk-请填写准确的 token！"
+
+
 client = OpenAI(
-    api_key="eyJ0eXBlIjoiSl...请填写准确的 token！",  # 此处传token，不带Bearer
-    base_url="https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
+    api_key=api_key , 
+    base_url=base_url,
 )
 
 chat_rsp = client.chat.completions.create(
