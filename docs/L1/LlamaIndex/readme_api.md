@@ -162,10 +162,11 @@ from openai import OpenAI
 
 base_url = "https://api.siliconflow.cn/v1"
 api_key = "sk-请填写准确的 token！"
+model="internlm/internlm2_5-7b-chat"
 
 # base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
 # api_key = "sk-请填写准确的 token！"
-
+# model="internlm2.5-latest"
 
 client = OpenAI(
     api_key=api_key , 
