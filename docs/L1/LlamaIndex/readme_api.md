@@ -1,11 +1,14 @@
 
-# llamaindex+Internlm2 RAG实践
+# LlamaIndex+InternLM API 实践
 
-本文将分为以下几个部分来介绍，如何使用 LlamaIndex 来使用浦语API（以 InternStudio 的环境为例）
+
+本文将分为以下几个部分来介绍
+
 - 前置知识
 - 环境、模型准备
 - LlamaIndex HuggingFaceLLM
 - LlamaIndex RAG
+
 
 ## 1. 前置知识
 正式介绍检索增强生成（Retrieval Augmented Generation，RAG）技术以前，大家不妨想想为什么会出现这样一个技术。
@@ -17,9 +20,11 @@
 ### RAG 效果比对
 
 如图所示，由于`xtuner`是一款比较新的框架， `浦语 API ` 训练数据库中并没有收录到它的相关信息。左图中问答均未给出准确的答案。右图未对 `浦语 API ` 进行任何增训的情况下，通过 RAG 技术实现的新增知识问答。
+
 ![image](https://github.com/user-attachments/assets/690c4b5a-aec0-480f-9bf7-42c110645ce3)
 
 ## 2. 环境、模型准备
+
 ### 2.1 配置基础环境
 这里以在 [Intern Studio](https://studio.intern-ai.org.cn/) 服务器上部署LlamaIndex为例。
 
