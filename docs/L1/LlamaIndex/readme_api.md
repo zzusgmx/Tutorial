@@ -138,7 +138,7 @@ unzip averaged_perceptron_tagger.zip
 
 ## 3. 是否使用 LlamaIndex 前后对比
 
-### 3.1、仅使用 API 进行推理不使用 LlamaIndex RAG
+### 3.1、不使用 LlamaIndex RAG（仅API）
 
 运行以下指令，新建一个python文件
 ```bash
