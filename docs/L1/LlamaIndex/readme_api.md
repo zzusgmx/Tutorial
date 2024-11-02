@@ -211,6 +211,8 @@ touch llamaindex_RAG.py
 ```
 打开`llamaindex_RAG.py`贴入以下代码
 ```python
+import os 
+os.environ['NLTK_DATA'] = '/root/nltk_data'
 
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.settings import Settings
