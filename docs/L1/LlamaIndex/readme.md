@@ -1,4 +1,4 @@
-# llamaindex+Internlm2 RAG 实践
+# LlamaIndex+InternLM RAG 实践
 
 <img width="900" alt="img_v3_02fn_136796c2-1adb-429b-8c87-276fc43b483g" src="https://github.com/user-attachments/assets/27b038b6-1b0a-4884-a2b8-847b0b0b0bf9">
 
