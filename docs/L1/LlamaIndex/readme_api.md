@@ -27,7 +27,7 @@
 首先，打开 `Intern Studio` 界面，点击 **创建开发机** 配置开发机系统。
 ![image](https://github.com/Shengshenlan/tutorial/assets/57640594/e325d0c1-6816-4ea5-ba4a-f509bdd42323)
 
-填写 `开发机名称` 后，点击 选择镜像 使用 `Cuda11.7-conda` 镜像，然后在资源配置中，使用 `30% A100 * 1` 的选项，然后立即创建开发机器。
+填写 `开发机名称` 后，点击 选择镜像 使用 `Cuda12.0-conda` 镜像，然后在资源配置中，使用 `30% A100 * 1` 的选项，然后立即创建开发机器。
 ![image](https://github.com/Shengshenlan/tutorial/assets/57640594/8c25b923-fda8-4af2-a4dc-2f4cf44845c9)
 
 点击 `进入开发机` 选项。
@@ -67,12 +67,11 @@ pip install einops==0.7.0 protobuf==5.26.1
 ```bash
 conda activate llamaindex
 pip install llama-index==0.11.20
-pip install llama-index-core==0.11.21
-pip install llama-index-llms-openai==0.2.16
 pip install llama-index-llms-replicate==0.3.0
 pip install llama-index-llms-openai-like==0.2.0
 pip install llama-index-embeddings-huggingface==0.3.1
 pip install llama-index-embeddings-instructor==0.2.1
+pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cu121
 ```
 
 ### 2.3 下载 Sentence Transformer 模型
@@ -132,7 +131,46 @@ unzip averaged_perceptron_tagger.zip
 ```
 之后使用时服务器即会自动使用已有资源，无需再次下载
 
-## 3. LlamaIndex 使用API直接推理
+## 3. 使用API直接推理
+
+### 3.1、使用原生openai 进行API推理（必做）
+
+运行以下指令，新建一个python文件
+```bash
+cd ~/llamaindex_demo
+touch test_internlm.py
+```
+
+打开test_internlm.py 贴入以下代码
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="eyJ0eXBlIjoiSl...请填写准确的 token！",  # 此处传token，不带Bearer
+    base_url="https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
+)
+
+chat_rsp = client.chat.completions.create(
+    model="internlm2.5-latest",
+    messages=[{"role": "user", "content": "xtuner是什么？"}],
+)
+
+for choice in chat_rsp.choices:
+    print(choice.message.content)
+```
+之后运行
+```bash
+conda activate llamaindex
+cd ~/llamaindex_demo/
+python test_internlm.py
+```
+结果为：
+
+![image](https://github.com/user-attachments/assets/679fbe83-58dc-4e3d-8136-9a7d670476ca)
+
+回答的效果并不好，并不是我们想要的xtuner。
+
+### 3.2、使用LlamaIndex API进行推理（可选）
 
 `使用硅基流动 API进行使用（默认）`
 
@@ -148,19 +186,19 @@ https://cloud.siliconflow.cn/models?mfs=internlm 从硅基流动网站上获取a
 
 https://internlm.intern-ai.org.cn/api/document  获取api key的地址
 
-
 运行以下指令，新建一个python文件
 ```bash
 cd ~/llamaindex_demo
 touch llamaindex_internlm.py
 ```
 
-
 打开llamaindex_internlm.py 贴入以下代码
 ```python
-
 from llama_index.core.llms import ChatMessage
 from llama_index.legacy.callbacks import CallbackManager
+
+# Create an instance of CallbackManager
+callback_manager = CallbackManager()
 
 ###silicon---硅基流动、puyu---浦语
 provider = "silicon" 
@@ -177,9 +215,6 @@ else:
    key = "eyJ0eXBlIjoiSl...请填写准确的 token！"
    #使用浦语API 进行使用初始化llm
    llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
-
-# Create an instance of CallbackManager
-callback_manager = CallbackManager()
 
 rsp = llm.chat(messages=[ChatMessage(content="xtuner是什么？")])
 print(rsp)
@@ -221,6 +256,9 @@ from llama_index.core.settings import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.legacy.callbacks import CallbackManager
 
+# Create an instance of CallbackManager
+callback_manager = CallbackManager()
+
 ###silicon---硅基流动、puyu---浦语
 provider = "silicon"
 
@@ -238,8 +276,6 @@ else:
    #使用浦语API 进行使用初始化llm
    llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
 
-# Create an instance of CallbackManager
-callback_manager = CallbackManager()
 
 #初始化一个HuggingFaceEmbedding对象，用于将文本转换为向量表示
 embed_model = HuggingFaceEmbedding(
@@ -298,6 +334,9 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.legacy.callbacks import CallbackManager
 
+# Create an instance of CallbackManager
+callback_manager = CallbackManager()
+
 ###silicon---硅基流动、puyu---浦语
 provider = "silicon" 
 
@@ -315,8 +354,7 @@ else:
    #使用浦语API 进行使用初始化llm
    llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
 
-# Create an instance of CallbackManager
-callback_manager = CallbackManager()
+
 
 st.set_page_config(page_title="llama_index_demo", page_icon="🦜🔗")
 st.title("llama_index_demo")
