@@ -26,7 +26,7 @@
 
 ||关卡名称|资料|闯关激励|
 |:-----|:----|:----|:-----|
-|第 1 关| 书生大模型全链路开源体系 |[任务]、[视频]| 100元算力点 |
+|第 1 关| 书生大模型全链路开源体系 |[任务](docs/L1/ToolChain)、[视频](https://www.bilibili.com/video/BV1CkSUYGE1v/)| 100元算力点 |
 |第 2 关| 玩转书生「多模态对话」和「AI搜索」产品 | [任务]、[文档]、[视频]| 100元算力点 |
 |第 3 关| 浦语提示词工程实践 | [任务](docs/L1/Prompt/tasks.md)、[文档](docs/L1/Prompt)、[视频](https://www.bilibili.com/video/BV1tjS7YfEWJ/)| 100元算力点 |
 |第 4 关| InternLM + LlamaIndex RAG 实践|[任务](docs/L1/LlamaIndex/task.md)、[文档](docs/L1/LlamaIndex)、[视频]| 100元算力点 |
