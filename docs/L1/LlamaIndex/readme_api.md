@@ -194,13 +194,6 @@ python test_internlm.py
 
 ### 3.2 使用 API+LlamaIndex 
 
-由于LlamaIndex不支持浦语API，需要自己编写浦语API代码需要先执行以下操作：
-
-把 `docs/L1/LlamaIndex/openai_llm.py` 文件放到 `~/llamaindex_demo目录下`  
-把 `docs/L1/LlamaIndex/openai_Internlm.py` 放到 `~/llamaindex_demo目录下`  
-
-
-接下来我们先激活环境
 ```bash
 conda activate llamaindex
 ```
@@ -243,9 +236,6 @@ api_key = "请填写 API Key"
 
 
 llm =OpenAILike(model=model, api_base=api_base_url, api_key=api_key, is_chat_model=True,callback_manager=callback_manager)
-
-
-
 
 
 #初始化一个HuggingFaceEmbedding对象，用于将文本转换为向量表示
@@ -303,26 +293,20 @@ import streamlit as st
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.legacy.callbacks import CallbackManager
+from llama_index.llms.openai_like import OpenAILike
 
 # Create an instance of CallbackManager
 callback_manager = CallbackManager()
 
-###silicon---硅基流动、puyu---浦语
-provider = "silicon" 
+api_base_url =  "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
+model = "internlm2.5-latest"
+api_key = "请填写 API Key"
 
-if provider == "silicon":
-   from llama_index.llms.openai_like import OpenAILike
-   url = "https://api.siliconflow.cn/v1"
-   key = "sk-请填写准确的 token！"
-   #使用硅基流动 API进行使用初始化llm
-   llm =OpenAILike(model="internlm/internlm2_5-7b-chat", api_base=url, api_key=key, is_chat_model=True,callback_manager=callback_manager)
-else:
-   from openai_Internlm import OpenAIInternlm
-   url =  "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
-   key = "eyJ0eXBlIjoiSl...请填写准确的 token！"
-   # https://internlm.intern-ai.org.cn/api/document  获取api key的地址
-   #使用浦语API 进行使用初始化llm
-   llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
+# api_base_url =  "https://api.siliconflow.cn/v1"
+# model = "internlm/internlm2_5-7b-chat"
+# api_key = "请填写 API Key"
+
+llm =OpenAILike(model=model, api_base=api_base_url, api_key=api_key, is_chat_model=True,callback_manager=callback_manager)
 
 
 
