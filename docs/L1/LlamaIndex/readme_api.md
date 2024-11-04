@@ -6,8 +6,8 @@
 
 - 前置知识
 - 环境、模型准备
-- LlamaIndex HuggingFaceLLM
-- LlamaIndex RAG
+- 是否使用 LlamaIndex 前后对比
+- LlamaIndex Web
 
 
 ## 1. 前置知识
