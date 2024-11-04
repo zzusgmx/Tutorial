@@ -11,7 +11,6 @@
 
 - 使用 OpenCompass 进行主观评测（选做）
 - 使用 OpenCompass 评测 InternLM2-Chat-1.8B 模型使用 LMDeploy部署后在 ceval 数据集上的性能（选做）
-- 使用 VLMEvalKit 评测 internvl2-2b 模型在 vlm 数据集上的性能（优秀学员必做）
 
 ## 闯关材料提交（完成任务并且提交材料视为闯关成功）
 
