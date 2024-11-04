@@ -284,7 +284,7 @@ python llamaindex_RAG.py
 
 借助RAG技术后，就能获得我们想要的答案了。
 
-## 5. LlamaIndex web
+## 4. LlamaIndex web
 运行之前首先安装依赖
 
 ```shell
@@ -411,8 +411,8 @@ streamlit run app.py
 ![image](https://github.com/user-attachments/assets/04df06bd-d7ec-45aa-b4fc-83e37cd896c1)
 
 
-## 6. 小结
+## 5. 小结
 恭喜你，成功通关本关卡！继续加油！你成功使用 LlamaIndex 运行了浦语API，并实现了知识库的构建与检索。这为管理和利用大规模知识库提供了强大的工具和方法。接下来，可以进一步优化和扩展功能，以满足更复杂的需求。
 
-## 7. 作业
+## 6. 作业
 作业请访问[作业](./task.md)。
