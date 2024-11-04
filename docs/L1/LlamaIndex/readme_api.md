@@ -145,8 +145,8 @@ unzip averaged_perceptron_tagger.zip
 
 浦语官网和硅基流动都提供了InternLM的类OpenAI接口格式的免费的 API，可以访问以下两个了解两个 API 的使用方法和 Key。
 
-硅基流动：https://cloud.siliconflow.cn/models?mfs=internlm  
 浦语官方 API：https://internlm.intern-ai.org.cn/api/document  
+硅基流动：https://cloud.siliconflow.cn/models?mfs=internlm  
 
 
 运行以下指令，新建一个python文件
@@ -159,14 +159,13 @@ touch test_internlm.py
 ```python
 from openai import OpenAI
 
-
-base_url = "https://api.siliconflow.cn/v1"
+base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
 api_key = "sk-请填写准确的 token！"
-model="internlm/internlm2_5-7b-chat"
+model="internlm2.5-latest"
 
-# base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
+# base_url = "https://api.siliconflow.cn/v1"
 # api_key = "sk-请填写准确的 token！"
-# model="internlm2.5-latest"
+# model="internlm/internlm2_5-7b-chat"
 
 client = OpenAI(
     api_key=api_key , 
@@ -227,26 +226,26 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.settings import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.legacy.callbacks import CallbackManager
+from llama_index.llms.openai_like import OpenAILike
+
 
 # Create an instance of CallbackManager
 callback_manager = CallbackManager()
 
-###silicon---硅基流动、puyu---浦语
-provider = "silicon"
+api_base_url =  "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
+model = "internlm2.5-latest"
+api_key = "请填写 API Key"
 
-if provider == "silicon":
-   from llama_index.llms.openai_like import OpenAILike
-   url = "https://api.siliconflow.cn/v1"
-   key = "sk-请填写准确的 token！"
-   #使用硅基流动 API进行使用初始化llm
-   llm =OpenAILike(model="internlm/internlm2_5-7b-chat", api_base=url, api_key=key, is_chat_model=True,callback_manager=callback_manager)
-else:
-   from openai_Internlm import OpenAIInternlm
-   url =  "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
-   key = "eyJ0eXBlIjoiSl...请填写准确的 token！"
-   # https://internlm.intern-ai.org.cn/api/document  获取api key的地址
-   #使用浦语API 进行使用初始化llm
-   llm = OpenAIInternlm(api_base=url, api_key=key, model="internlm2.5-latest", is_chat_model=True,callback_manager=callback_manager)
+# api_base_url =  "https://api.siliconflow.cn/v1"
+# model = "internlm/internlm2_5-7b-chat"
+# api_key = "请填写 API Key"
+
+
+
+llm =OpenAILike(model=model, api_base=api_base_url, api_key=api_key, is_chat_model=True,callback_manager=callback_manager)
+
+
+
 
 
 #初始化一个HuggingFaceEmbedding对象，用于将文本转换为向量表示
