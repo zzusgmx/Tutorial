@@ -4,6 +4,8 @@
 
 - **任务要求1（必做，参考readme_api.md）**：基于 LlamaIndex 构建自己的 RAG 知识库，寻找一个问题 A 在使用 LlamaIndex 之前 浦语 API 不会回答，借助 LlamaIndex 后 浦语 API 具备回答 A 的能力，截图保存。
 
+注意：注意：写博客时提交作业时切记删除自己的 api_key！
+
 - **任务要求2（可选，参考readme.md）**：基于 LlamaIndex 构建自己的 RAG 知识库，寻找一个问题 A 在使用 LlamaIndex 之前 InternLM2-Chat-1.8B 模型不会回答，借助 LlamaIndex 后 InternLM2-Chat-1.8B 模型具备回答 A 的能力，截图保存。
 
 ## 闯关材料提交 (完成任务并且提交材料时为闯关成功)
