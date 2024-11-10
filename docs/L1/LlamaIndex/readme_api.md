@@ -159,7 +159,7 @@ touch test_internlm.py
 ```python
 from openai import OpenAI
 
-base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/",
+base_url = "https://internlm-chat.intern-ai.org.cn/puyu/api/v1/"
 api_key = "sk-请填写准确的 token！"
 model="internlm2.5-latest"
 
